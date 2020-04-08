@@ -78,62 +78,12 @@ Test
 
 В предобученной сети при обучении классификатора получилась следующая картина
 
-Функции потерь 
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_4.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_4.png)
-
-Метрики точности
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_4.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_4.png)
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Frozen.png)
 
 После разморозки всех слоев
 
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_5.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_5.png)
-
-Метрики точности
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_5.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_5.png)
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Unfrozen.png)
 
 Совместные графики до и после зраморозки (зеленый -- до, серый -- после)
 
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_6.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_6.png)
-
-Метрики точности
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_6.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_6.png)
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Together.png)
