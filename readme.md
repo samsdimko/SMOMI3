@@ -84,6 +84,6 @@ Test
 
 ![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Unfrozen.png)
 
-Совместные графики до и после зраморозки (зеленый -- до, серый -- после)
+Совместные графики до и после разморозки (синий -- до, серый -- после)
 
 ![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Together.png)
