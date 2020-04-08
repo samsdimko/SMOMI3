@@ -88,11 +88,13 @@ class Validation(tf.keras.callbacks.Callback):
 
 
 def build_model():
+    #model = keras.models.load_model('model.h5')
+    #model.trainable = True
     base_model = tf.keras.applications.VGG16(include_top=False, weights='imagenet', input_shape=(224,224,3), classes=2)
     base_model.trainable = False
     return tf.keras.models.Sequential([
     	base_model,
-        tf.keras.layers.Flatten(),
+    	tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)
     ])
 
@@ -111,7 +113,7 @@ def main():
     model = build_model()
 
     model.compile(
-        optimizer=keras.optimizers.sgd(lr=0.000000000001, momentum=0.9),
+        optimizer=keras.optimizers.sgd(lr=0.000001, momentum=0.9),
         loss=tf.keras.losses.categorical_crossentropy,
         metrics=[tf.keras.metrics.categorical_accuracy],
         target_tensors=[train_labels]
@@ -120,7 +122,7 @@ def main():
     log_dir='{}/xray-{}'.format(LOG_DIR, time.time())
     model.fit(
         (train_images, train_labels),
-        epochs=50,
+        epochs=80,
         steps_per_epoch=int(np.ceil(TRAINSET_SIZE / float(BATCH_SIZE))),
         callbacks=[
             tf.keras.callbacks.TensorBoard(log_dir),
