@@ -6,81 +6,35 @@
 
 
 
-В не предобученной сети на основе vgg16 прежде чем нейросеть уходила в nan получились следующие результаты:
+В не предобученной сети на основе vgg16 получились следующие результаты для темпов обучения:
 
-1)
+1) lr = 1e-7
 
-Функции потерь 
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/1e-7.png)
 
-Train
+2) lr = 1e-8
 
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_1.png)
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/1e-8.png)
 
-Test
+3) lr = 1e-9
 
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_1.png)
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/1e-9.png)
 
-Метрики точности
+4) lr = 1e-10
 
-Train
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/1e-10.png)
 
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_1.png)
+5) lr = 1e-11
 
-Test
+![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/1e-11.png)
 
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_1.png)
+Таким образом получилось, что функция потерь начинает себя адекватно вести при lr = 10^(-1) и меньше
 
-2)
-
-Функции потерь 
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_2.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_2.png)
-
-Метрики точности
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_2.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_2.png)
-
-3)
-
-Функции потерь 
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_loss_3.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_loss_3.png)
-
-Метрики точности
-
-Train
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Train_acc_3.png)
-
-Test
-
-![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Test_acc_3.png)
-
-
-
-В предобученной сети при обучении классификатора получилась следующая картина
+В предобученной сети при обучении классификатора получилась следующая картина, lr = 10^(-6)
 
 ![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Frozen.png)
 
-После разморозки всех слоев
+После разморозки всех слоев, lr = 10^(-11)
 
 ![Image alt](https://github.com/samsdimko/SMOMI3/blob/master/Unfrozen.png)
 
