@@ -13,6 +13,8 @@ import tensorflow as tf
 import time
 from tensorflow.python import keras as keras
 from tensorflow.python.keras.callbacks import LearningRateScheduler
+from keras.models import load_model
+
 
 LOG_DIR = 'logs'
 SHUFFLE_BUFFER = 10
@@ -91,22 +93,20 @@ def build_model():
         tf.keras.layers.Conv2D(filters=64, kernel_size=3),
         tf.keras.layers.Conv2D(filters=64, kernel_size=3),
         tf.keras.layers.MaxPool2D(),
-	tf.keras.layers.Conv2D(filters=128, kernel_size=3),
+        tf.keras.layers.Conv2D(filters=128, kernel_size=3),
         tf.keras.layers.Conv2D(filters=128, kernel_size=3),
         tf.keras.layers.MaxPool2D(),
-	tf.keras.layers.Conv2D(filters=256, kernel_size=3),
+        tf.keras.layers.Conv2D(filters=256, kernel_size=3),
         tf.keras.layers.Conv2D(filters=256, kernel_size=3),
         tf.keras.layers.MaxPool2D(),
-	tf.keras.layers.Conv2D(filters=512, kernel_size=3),
-        tf.keras.layers.Conv2D(filters=512, kernel_size=3),
-        tf.keras.layers.MaxPool2D(),
-	tf.keras.layers.Conv2D(filters=512, kernel_size=3),
         tf.keras.layers.Conv2D(filters=512, kernel_size=3),
         tf.keras.layers.Conv2D(filters=512, kernel_size=3),
         tf.keras.layers.MaxPool2D(),
-	tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(4096, activation=tf.keras.activations.relu),
-        tf.keras.layers.Dense(4096, activation=tf.keras.activations.relu),
+        tf.keras.layers.Conv2D(filters=512, kernel_size=3),
+        tf.keras.layers.Conv2D(filters=512, kernel_size=3),
+        tf.keras.layers.Conv2D(filters=512, kernel_size=3),
+        tf.keras.layers.MaxPool2D(),
+        tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(2, activation=tf.keras.activations.relu),
         tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)
     ])
@@ -126,7 +126,7 @@ def main():
     model = build_model()
 
     model.compile(
-        optimizer=keras.optimizers.sgd(lr=0.0000000001, momentum=0.9),
+        optimizer=keras.optimizers.sgd(lr=1e-11, momentum=0.9),
         loss=tf.keras.losses.categorical_crossentropy,
         metrics=[tf.keras.metrics.categorical_accuracy],
         target_tensors=[train_labels]
@@ -135,7 +135,7 @@ def main():
     log_dir='{}/xray-{}'.format(LOG_DIR, time.time())
     model.fit(
         (train_images, train_labels),
-        epochs=200,
+        epochs=150,
         steps_per_epoch=int(np.ceil(TRAINSET_SIZE / float(BATCH_SIZE))),
         callbacks=[
             tf.keras.callbacks.TensorBoard(log_dir),
